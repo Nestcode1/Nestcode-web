@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Menú Hamburguesa Móvil
+  // 3. Menú Hamburguesa Móvil y Cierre Automático
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
 
@@ -31,12 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
   }
 
-  // 4. Control del Modal de Autenticación
-  const authModalOverlay = document.getElementById('authModalOverlay');
+  // 4. Modal de Autenticación con Transición Deslizable
+  const authContainer = document.getElementById('authContainer');
+  const registerBtn = document.getElementById('registerBtn');
+  const loginBtn = document.getElementById('loginBtn');
   const openAuthModal = document.getElementById('openAuthModal');
   const closeAuthModal = document.getElementById('closeAuthModal');
+  const authModalOverlay = document.getElementById('authModalOverlay');
+
+  if (registerBtn && loginBtn && authContainer) {
+    registerBtn.addEventListener('click', () => {
+      authContainer.classList.add('active');
+    });
+
+    loginBtn.addEventListener('click', () => {
+      authContainer.classList.remove('active');
+    });
+  }
 
   if (openAuthModal && authModalOverlay) {
     openAuthModal.addEventListener('click', () => {
@@ -47,6 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeAuthModal && authModalOverlay) {
     closeAuthModal.addEventListener('click', () => {
       authModalOverlay.classList.remove('active');
+      authContainer.classList.remove('active'); // Restablece la vista predeterminada
+    });
+  }
+
+  // Cierre del modal al dar clic fuera del recuadro
+  if (authModalOverlay) {
+    authModalOverlay.addEventListener('click', (e) => {
+      if (e.target === authModalOverlay) {
+        authModalOverlay.classList.remove('active');
+        authContainer.classList.remove('active');
+      }
     });
   }
 
