@@ -1,34 +1,22 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NestCode — Soluciones Web & Desarrollo</title>
-
-  <link rel="icon" type="image/png" href="./logo3.png">
-  <link rel="shortcut icon" type="image/png" href="./logo3.png">
-  <link rel="apple-touch-icon" href="./logo3.png">
-
-  <meta name="description" content="En NestCode construimos páginas web modernas, escalables y optimizadas para potenciar tu marca e impulsar tus ventas.">
-  <meta name="keywords" content="NestCode, desarrollo web, landing pages, soluciones digitales, sitios web a la medida">
-  <meta name="author" content="NestCode">
-
-  <meta property="og:title" content="NestCode — Soluciones Web & Desarrollo">
-  <meta property="og:description" content="Construimos experiencias digitales modernas, escalables y de alto rendimiento.">
-  <meta property="og:image" content="logo3.png">
-  <meta property="og:type" content="website">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NestCode - Desarrollo Web & Software</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="style.css?v=1.2" />
 </head>
 <body>
 
-  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  <div class="scroll-progress-bar" id="progressBar"></div>
 
-  <header>  
-    <div class="logo">NESTCODE</div>
+  <header>
+    <div class="logo">NestCode</div>
     <div class="header-right">
       <button class="theme-toggle-btn" id="themeToggle" aria-label="Cambiar tema">🌙</button>
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -38,7 +26,6 @@
       </button>
       <nav class="nav-links" id="navLinks">
         <a href="#inicio">Inicio</a>
-        <a href="#proceso">Proceso</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
         <a href="#contacto">Contacto</a>
@@ -48,168 +35,73 @@
   </header>
 
   <main>
-    <section id="inicio" class="hero-section fade-in">
+    <section id="inicio" class="hero-section">
       <div class="hero-container">
-        <div class="hero-logo-wrapper">
-          <img src="logo3.png" alt="NestCode Logo" class="hero-logo-img tilt-card">
-        </div>
-        <span class="hero-badge">Agencia de Desarrollo Digital</span>
-        <h1 class="hero-title">Construimos experiencias digitales modernas y escalables</h1>
-        <p class="hero-subtitle">Especializados en desarrollo web full-stack, interfaces atractivas y rendimiento optimizado para potenciar tu marca.</p>
+        <span class="hero-badge">Desarrollo Web Profesional</span>
+        <h1 class="hero-title">Transformamos ideas en experiencias digitales</h1>
+        <p class="hero-subtitle">Creamos sitios web modernos, optimizados para móviles y escalables para hacer crecer tu negocio.</p>
         <div class="hero-actions">
-          <a href="#contacto" class="btn-primary">Iniciar Proyecto</a>
+          <a href="#contacto" class="btn-primary">Cotizar Proyecto</a>
           <a href="#servicios" class="btn-secondary">Ver Servicios</a>
         </div>
       </div>
     </section>
 
-    <section class="stats-grid fade-in">
-      <div class="stat-card">
-        <span class="stat-number">100%</span>
-        <span class="stat-label">Código Optimizado</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">24/7</span>
-        <span class="stat-label">Disponibilidad Web</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">Fast</span>
-        <span class="stat-label">Carga Ultrarrápida</span>
-      </div>
-    </section>
-
-    <section id="proceso" class="fade-in">
-      <h2>Nuestro Proceso</h2>
-      <p class="section-desc">Un enfoque claro y estructurado desde la idea inicial hasta el lanzamiento.</p>
-      <div class="process-grid">
-        <div class="process-card tracker-card tilt-card">
-          <span class="step-number">01</span>
-          <h3>Planificación</h3>
-          <p>Análisis detallado de requerimientos y definición de objetivos del proyecto.</p>
-        </div>
-        <div class="process-card tracker-card tilt-card">
-          <span class="step-number">02</span>
-          <h3>Diseño & Layout</h3>
-          <p>Creación de interfaces modernas, adaptables y enfocadas en la experiencia de usuario.</p>
-        </div>
-        <div class="process-card tracker-card tilt-card">
-          <span class="step-number">03</span>
-          <h3>Desarrollo</h3>
-          <p>Implementación con estándares limpios de HTML, CSS, JavaScript y arquitecturas backend escalables.</p>
-        </div>
-        <div class="process-card tracker-card tilt-card">
-          <span class="step-number">04</span>
-          <h3>Despliegue</h3>
-          <p>Publicación del sitio, optimización SEO y monitoreo de rendimiento continuo.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="nosotros" class="fade-in">
-      <h2>Sobre NestCode</h2>
-      <p class="nosotros-intro">Somos un equipo enfocado en transformar ideas en plataformas digitales de alto impacto visual y técnico.</p>
+    <section id="nosotros">
+      <h2>Sobre Nosotros</h2>
+      <p class="nosotros-intro">En NestCode desarrollamos soluciones digitales a medida enfocadas en rendimiento, experiencia de usuario y diseño de alto impacto.</p>
       <div class="nosotros-grid">
-        <div class="card-nosotros tracker-card tilt-card">
-          <h3>Enfoque Técnico</h3>
-          <p>Desarrollo estructurado aplicando buenas prácticas de programación y arquitectura frontend/backend.</p>
+        <div class="card-nosotros tracker-card">
+          <h3>Diseño Moderno</h3>
+          <p>Interfaces intuitivas que destacan la identidad visual de tu marca.</p>
         </div>
-        <div class="card-nosotros tracker-card tilt-card">
-          <h3>Diseño Adaptativo</h3>
-          <p>Garantizamos una visualización fluida en cualquier dispositivo: móviles, tablets y monitores de escritorio.</p>
+        <div class="card-nosotros tracker-card">
+          <h3>Optimización Móvil</h3>
+          <p>Tu sitio web adaptado al 100% para smatphones, tablets y computadoras.</p>
+        </div>
+        <div class="card-nosotros tracker-card">
+          <h3>Código Limpio</h3>
+          <p>Estándares de desarrollo actualizados para lograr máxima velocidad y seguridad.</p>
         </div>
       </div>
     </section>
 
-    <section id="servicios" class="fade-in">
-      <h2>Servicios</h2>
-      <p class="section-desc">Soluciones a la medida adaptadas a las necesidades de tu empresa.</p>
+    <section id="servicios">
+      <h2>Nuestros Servicios</h2>
       <div class="servicios-grid">
-        <div class="card tracker-card tilt-card">
-          <h3>Desarrollo Web a la Medida</h3>
-          <p>Páginas web personalizadas sin depender de plantillas genéricas, optimizadas para máxima velocidad.</p>
+        <div class="card tracker-card">
+          <h3>Landing Pages</h3>
+          <p>Páginas de alta conversión orientadas a captar clientes y presentar productos o servicios.</p>
         </div>
-        <div class="card tracker-card tilt-card">
-          <h3>Landing Pages de Alta Conversión</h3>
-          <p>Sitios dinámicos diseñados específicamente para captar prospectos e impulsar tus ventas.</p>
+        <div class="card tracker-card">
+          <h3>Sitios Corporativos</h3>
+          <p>Plataformas web empresariales con arquitectura moderna y administración sencilla.</p>
         </div>
-        <div class="card tracker-card tilt-card">
-          <h3>Mantenimiento & Optimización</h3>
-          <p>Mejora de velocidad, corrección de errores y actualizaciones continuas para tu sitio existente.</p>
+        <div class="card tracker-card">
+          <h3>Sistemas a Medida</h3>
+          <p>Desarrollo de portales, paneles de administración y herramientas web personalizadas.</p>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="fade-in">
-      <div class="contacto-header">
-        <span class="badge-contacto">Contacto</span>
-        <h2>Hablemos de tu próximo proyecto</h2>
-        <p class="section-desc">Escríbenos tus requerimientos o dudas y nos pondremos en contacto contigo a la brevedad.</p>
-      </div>
-
+    <section id="contacto">
+      <h2>Contacto</h2>
       <div class="contacto-container">
-        <form action="https://formspree.io/f/xwleldev" method="POST" id="contactoForm" class="contacto-form">
-          
-          <input type="text" name="_gotcha" style="display:none">
-
+        <form class="contacto-form" id="contactForm">
           <div class="form-group">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            <input type="text" placeholder="Tu Nombre" required />
           </div>
-
           <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+            <input type="email" placeholder="Correo Electrónico" required />
           </div>
-
           <div class="form-group">
-            <label for="servicio">Servicio de interés</label>
-            <select id="servicio" name="servicio" required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="desarrollo-web">Desarrollo Web a la Medida</option>
-              <option value="landing-page">Landing Page / Página Corporativa</option>
-              <option value="mantenimiento">Mantenimiento y Optimización</option>
-              <option value="otro">Otro / Consulta General</option>
-            </select>
+            <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
           </div>
-
-          <div class="form-group">
-            <label for="mensaje">Detalles del proyecto</label>
-            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Platícanos sobre tu idea o requerimientos..." required></textarea>
-          </div>
-
-          <button type="submit" id="submitBtn" class="btn-primary btn-submit">Enviar Mensaje</button>
-          
-          <div id="formStatus" class="form-status"></div>
+          <button type="submit" class="btn-primary">Enviar Mensaje</button>
         </form>
-
-        <div class="contacto-directo">
-          <div class="contacto-card tracker-card tilt-card">
-            <div class="contacto-icon">✉️</div>
-            <h3>Correo Electrónico</h3>
-            <p>Escríbenos directamente para cotizaciones o dudas generales.</p>
-            <a href="mailto:nestcoded@gmail.com" class="btn-contacto-secundario">nestcoded@gmail.com</a>
-          </div>
-
-          <div class="contacto-card tracker-card tilt-card">
-            <div class="contacto-icon">💬</div>
-            <h3>Atención Inmediata</h3>
-            <p>¿Prefieres una respuesta más rápida? Contáctanos por WhatsApp.</p>
-            <div class="contacto-status">
-              <span class="pulse-dot"></span>
-              <span>Disponible para nuevos proyectos</span>
-            </div>
-            <a href="https://wa.me/523311440230?text=Hola%20NestCode,%20me%20interesa%20iniciar%20un%20proyecto" target="_blank" rel="noopener noreferrer" class="btn-contacto-secundario">
-              Enviar WhatsApp
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   </main>
-
-  <footer>
-    <p>© NestCode. Todos los derechos reservados.</p>
-  </footer>
 
   <div class="auth-modal-overlay" id="authModalOverlay">
     <div class="auth-modal-wrapper">
@@ -217,38 +109,50 @@
       
       <div class="auth-container" id="authContainer">
         
-        <div class="auth-form-container sign-up">
-          <form class="auth-form" onsubmit="event.preventDefault();">
-            <h2>Crear Cuenta</h2>
-            <p class="auth-subtitle">Regístrate para dar seguimiento a tu proyecto</p>
-            <input type="text" placeholder="Nombre completo" required />
-            <input type="email" placeholder="Correo electrónico" required />
+        <div class="auth-form-container sign-in">
+          <form class="auth-form" id="signInForm" onsubmit="return false;">
+            <h2>Iniciar Sesión</h2>
+            <span class="auth-subtitle">Ingresa a tu portal de cliente</span>
+            
+            <input type="text" placeholder="Usuario o Correo" required />
             <input type="password" placeholder="Contraseña" required />
-            <button type="submit" class="btn-primary">REGISTRARSE</button>
+            
+            <button type="submit" class="btn-primary" style="margin-top: 10px;">Entrar</button>
+
+            <button type="button" class="auth-mobile-switch-btn" id="toSignUpMobile">
+              ¿No tienes cuenta? Regístrate aquí
+            </button>
           </form>
         </div>
 
-        <div class="auth-form-container sign-in">
-          <form class="auth-form" onsubmit="event.preventDefault();">
-            <h2>Iniciar Sesión</h2>
-            <p class="auth-subtitle">Accede a tu panel de cliente NestCode</p>
-            <input type="email" placeholder="Correo electrónico" required />
+        <div class="auth-form-container sign-up">
+          <form class="auth-form" id="signUpForm" onsubmit="return false;">
+            <h2>Crear Cuenta</h2>
+            <span class="auth-subtitle">Regístrate para ver el avance de tus proyectos</span>
+            
+            <input type="text" placeholder="Nombre Completo" required />
+            <input type="email" placeholder="Correo Electrónico" required />
             <input type="password" placeholder="Contraseña" required />
-            <button type="submit" class="btn-primary">INGRESAR</button>
+            
+            <button type="submit" class="btn-primary" style="margin-top: 10px;">Registrarse</button>
+
+            <button type="button" class="auth-mobile-switch-btn" id="toSignInMobile">
+              ¿Ya tienes cuenta? Inicia sesión
+            </button>
           </form>
         </div>
 
         <div class="auth-toggle-container">
           <div class="auth-toggle">
             <div class="auth-toggle-panel auth-toggle-left">
-              <h2>¡Bienvenido de nuevo!</h2>
-              <p>Si ya posees una cuenta con nosotros, inicia sesión para continuar.</p>
-              <button class="btn-secondary" id="loginBtn">Iniciar Sesión</button>
+              <h2>¿Ya tienes cuenta?</h2>
+              <p>Inicia sesión con tus credenciales para acceder a tus servicios y soporte.</p>
+              <button class="btn-secondary" id="signInBtn">Iniciar Sesión</button>
             </div>
             <div class="auth-toggle-panel auth-toggle-right">
-              <h2>¿Nuevo en NestCode?</h2>
-              <p>Crea tu cuenta e inicia tu primer proyecto web con nosotros.</p>
-              <button class="btn-secondary" id="registerBtn">Registrarse</button>
+              <h2>¡Hola, Cliente!</h2>
+              <p>Regístrate para dar seguimiento a tus proyectos y solicitar asesoría.</p>
+              <button class="btn-secondary" id="signUpBtn">Crear Cuenta</button>
             </div>
           </div>
         </div>
@@ -257,6 +161,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=1.2"></script>
 </body>
 </html>
