@@ -23,7 +23,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Habilita el desplazamiento suave entre pestañas */
+  scroll-behavior: smooth;
 }
 
 * {
@@ -114,7 +114,7 @@ header {
   background-color: var(--text-main);
 }
 
-/* HERO SECTION & RECORTE TRANSPARENTE DEL LOGO */
+/* HERO SECTION & ALINEACIÓN CENTRADA DEL LOGO + BADGE */
 .hero-section {
   padding: 140px 20px 60px 20px;
   text-align: center;
@@ -124,9 +124,12 @@ header {
 
 .hero-container {
   max-width: 850px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .hero-brand-inline {
@@ -135,24 +138,30 @@ header {
   justify-content: center;
   gap: 16px;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .hero-logo-img {
   width: 50px;
   height: 50px;
-  object-fit: cover;
-  border-radius: 50%; /* Recorta los bordes cuadrados oscuros de la imagen */
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
+  display: block;
 }
 
 .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(99, 102, 241, 0.1);
   color: var(--accent);
   border: 1px solid var(--accent);
-  padding: 6px 16px;
+  padding: 8px 18px;
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 600;
+  line-height: 1;
 }
 
 .hero-title {
@@ -296,33 +305,35 @@ h2 {
   margin-right: 6px;
 }
 
-/* ESTILOS DEL MODAL INTERACTIVO DE CLIENTES (PANEL DESLIZABLE) */
+/* MODAL INTERACTIVO CON OVERLAY DESLIZABLE */
 .auth-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
-.auth-modal-overlay.active { display: flex; }
+.auth-modal-overlay.active {
+  display: flex;
+}
 
 .auth-modal-wrapper {
   position: relative;
   width: 768px;
-  max-width: 95%;
-  min-height: 480px;
+  max-width: 90%;
+  height: 480px;
   background: var(--bg-secondary);
   border-radius: 20px;
   border: 1px solid var(--border-color);
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
 }
 
 .close-auth-modal {
@@ -331,29 +342,28 @@ h2 {
   right: 20px;
   background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--text-main);
   font-size: 1.8rem;
   cursor: pointer;
-  z-index: 20;
+  z-index: 50;
 }
 
 .auth-container {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 480px;
 }
 
 .auth-form-container {
   position: absolute;
   top: 0;
   height: 100%;
+  width: 50%;
   transition: all 0.6s ease-in-out;
 }
 
 .auth-form-container.sign-in {
   left: 0;
-  width: 50%;
   z-index: 2;
 }
 
@@ -363,7 +373,6 @@ h2 {
 
 .auth-form-container.sign-up {
   left: 0;
-  width: 50%;
   opacity: 0;
   z-index: 1;
 }
@@ -372,12 +381,6 @@ h2 {
   transform: translateX(100%);
   opacity: 1;
   z-index: 5;
-  animation: move 0.6s;
-}
-
-@keyframes move {
-  0%, 49.99% { opacity: 0; z-index: 1; }
-  50%, 100% { opacity: 1; z-index: 5; }
 }
 
 .auth-form {
@@ -399,13 +402,13 @@ h2 {
 .auth-subtitle {
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .auth-form input {
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
-  padding: 12px 15px;
+  padding: 10px 14px;
   margin: 6px 0;
   width: 100%;
   border-radius: 8px;
@@ -414,7 +417,7 @@ h2 {
 }
 
 .auth-form button {
-  margin-top: 16px;
+  margin-top: 12px;
   width: 100%;
 }
 
@@ -426,17 +429,17 @@ h2 {
   height: 100%;
   overflow: hidden;
   transition: all 0.6s ease-in-out;
-  border-radius: 150px 0 0 100px;
-  z-index: 1000;
+  border-radius: 120px 0 0 80px;
+  z-index: 100;
 }
 
 .auth-container.active .auth-toggle-container {
   transform: translateX(-100%);
-  border-radius: 0 150px 100px 0;
+  border-radius: 0 120px 80px 0;
 }
 
 .auth-toggle {
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: #ffffff;
   position: relative;
   left: -100%;
@@ -458,10 +461,9 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 40px;
+  padding: 0 30px;
   text-align: center;
   top: 0;
-  transform: translateX(0);
   transition: all 0.6s ease-in-out;
 }
 
@@ -483,16 +485,23 @@ h2 {
 }
 
 .auth-toggle-panel p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 15px 0 25px;
+  font-size: 0.85rem;
+  margin: 12px 0 20px;
 }
 
-/* RESPONSIVO DE MODAL Y COMPONENTES */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVO */
 @media (max-width: 768px) {
   .contacto-container { grid-template-columns: 1fr; }
   .hero-title { font-size: 2.2rem; }
-  .hero-brand-inline { flex-direction: column; gap: 8px; }
+  .hero-brand-inline { flex-direction: column; gap: 12px; }
   .menu-toggle { display: flex; }
   .nav-links {
     display: none;
@@ -506,9 +515,7 @@ h2 {
     border-bottom: 1px solid var(--border-color);
   }
   .nav-links.active { display: flex; }
-
-  /* Adaptación del modal para dispositivos móviles */
-  .auth-modal-wrapper { min-height: 520px; }
-  .auth-form-container { width: 100% !important; }
-  .auth-toggle-container { display: none; } /* En celulares se simplifica la vista sin el banner horizontal overlay */
+  .auth-modal-wrapper { height: auto; min-height: 500px; }
+  .auth-form-container { width: 100%; }
+  .auth-toggle-container { display: none; }
 }
