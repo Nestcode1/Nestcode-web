@@ -22,6 +22,10 @@
   --header-bg: rgba(248, 250, 252, 0.85);
 }
 
+html {
+  scroll-behavior: smooth; /* Habilita el desplazamiento suave entre pestañas */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -110,7 +114,7 @@ header {
   background-color: var(--text-main);
 }
 
-/* HERO SECTION Y CENTRADO DEL LOGO + BADGE */
+/* HERO SECTION & RECORTE TRANSPARENTE DEL LOGO */
 .hero-section {
   padding: 140px 20px 60px 20px;
   text-align: center;
@@ -134,8 +138,11 @@ header {
 }
 
 .hero-logo-img {
-  width: 55px;
-  height: auto;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%; /* Recorta los bordes cuadrados oscuros de la imagen */
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
 }
 
 .hero-badge {
@@ -289,15 +296,15 @@ h2 {
   margin-right: 6px;
 }
 
-/* MODAL AUTH */
+/* ESTILOS DEL MODAL INTERACTIVO DE CLIENTES (PANEL DESLIZABLE) */
 .auth-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
   display: none;
   justify-content: center;
   align-items: center;
@@ -307,49 +314,181 @@ h2 {
 .auth-modal-overlay.active { display: flex; }
 
 .auth-modal-wrapper {
-  background: var(--bg-secondary);
-  border-radius: 16px;
-  padding: 30px;
   position: relative;
-  max-width: 400px;
-  width: 90%;
+  width: 768px;
+  max-width: 95%;
+  min-height: 480px;
+  background: var(--bg-secondary);
+  border-radius: 20px;
   border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 .close-auth-modal {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 15px;
+  right: 20px;
   background: none;
   border: none;
   color: var(--text-muted);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
+  z-index: 20;
+}
+
+.auth-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+}
+
+.auth-form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.auth-form-container.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.auth-container.active .auth-form-container.sign-in {
+  transform: translateX(100%);
+}
+
+.auth-form-container.sign-up {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.auth-container.active .auth-form-container.sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6s;
+}
+
+@keyframes move {
+  0%, 49.99% { opacity: 0; z-index: 1; }
+  50%, 100% { opacity: 1; z-index: 5; }
 }
 
 .auth-form {
+  background: var(--bg-secondary);
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  gap: 12px;
+  padding: 0 40px;
+  height: 100%;
+  text-align: center;
+}
+
+.auth-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+
+.auth-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
 }
 
 .auth-form input {
-  padding: 10px;
-  background: var(--bg-primary);
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  padding: 12px 15px;
+  margin: 6px 0;
+  width: 100%;
+  border-radius: 8px;
   color: var(--text-main);
+  outline: none;
 }
 
-footer {
+.auth-form button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.auth-toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+
+.auth-container.active .auth-toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.auth-toggle {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #ffffff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.auth-container.active .auth-toggle {
+  transform: translateX(50%);
+}
+
+.auth-toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
   text-align: center;
-  padding: 30px;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
 }
 
-/* RESPONSIVO */
+.auth-toggle-left {
+  transform: translateX(-20%);
+}
+
+.auth-container.active .auth-toggle-left {
+  transform: translateX(0);
+}
+
+.auth-toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.auth-container.active .auth-toggle-right {
+  transform: translateX(20%);
+}
+
+.auth-toggle-panel p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 15px 0 25px;
+}
+
+/* RESPONSIVO DE MODAL Y COMPONENTES */
 @media (max-width: 768px) {
   .contacto-container { grid-template-columns: 1fr; }
   .hero-title { font-size: 2.2rem; }
@@ -367,4 +506,9 @@ footer {
     border-bottom: 1px solid var(--border-color);
   }
   .nav-links.active { display: flex; }
+
+  /* Adaptación del modal para dispositivos móviles */
+  .auth-modal-wrapper { min-height: 520px; }
+  .auth-form-container { width: 100% !important; }
+  .auth-toggle-container { display: none; } /* En celulares se simplifica la vista sin el banner horizontal overlay */
 }
