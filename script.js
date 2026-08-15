@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Menú Hamburguesa Móvil y Cierre Automático
+  // 3. Menú Hamburguesa Móvil
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
 
@@ -31,15 +31,31 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
   }
 
-  // 4. Modal de Autenticación con Transición Deslizable
+  // 4. Desplazamiento Suave (Scroll) y Cierre automático del menú móvil
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      // Oculta el menú desplegable en dispositivos móviles al hacer clic en una pestaña
+      if (navLinks) {
+        navLinks.classList.remove('active');
+      }
+
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // 5. Modal de Autenticación con Transición Deslizable (Corregido)
   const authContainer = document.getElementById('authContainer');
   const registerBtn = document.getElementById('registerBtn');
   const loginBtn = document.getElementById('loginBtn');
@@ -49,11 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (registerBtn && loginBtn && authContainer) {
     registerBtn.addEventListener('click', () => {
-      authContainer.classList.add('active');
+      authContainer.classList.add('active'); // Muestra el panel de registro deslizándose
     });
 
     loginBtn.addEventListener('click', () => {
-      authContainer.classList.remove('active');
+      authContainer.classList.remove('active'); // Regresa al panel de inicio de sesión
     });
   }
 
@@ -66,11 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeAuthModal && authModalOverlay) {
     closeAuthModal.addEventListener('click', () => {
       authModalOverlay.classList.remove('active');
-      authContainer.classList.remove('active'); // Restablece la vista predeterminada
+      authContainer.classList.remove('active');
     });
   }
 
-  // Cierre del modal al dar clic fuera del recuadro
   if (authModalOverlay) {
     authModalOverlay.addEventListener('click', (e) => {
       if (e.target === authModalOverlay) {
@@ -80,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Envío Asíncrono del Formulario (Formspree)
+  // 6. Envío Asíncrono del Formulario (Formspree)
   const contactoForm = document.getElementById('contactoForm');
   const submitBtn = document.getElementById('submitBtn');
   const formStatus = document.getElementById('formStatus');
