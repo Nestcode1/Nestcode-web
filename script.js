@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 6. EFECTO RIPPLE EN BOTONES
   // ==========================================
-  const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-contacto-secundario, .theme-toggle-btn');
+  const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-contacto-secundario, .theme-toggle-btn, .btn-auth-trigger');
 
   buttons.forEach(button => {
     button.addEventListener('click', function (e) {
@@ -144,12 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
     contactoForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Cambiar estado del botón
       submitBtn.disabled = true;
       const originalText = submitBtn.textContent;
       submitBtn.textContent = 'Enviando...';
 
-      // Ocultar estados previos
       formStatus.className = 'form-status';
       formStatus.style.display = 'block';
       formStatus.textContent = '';
@@ -185,6 +183,53 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
       }
+    });
+  }
+
+  // ==========================================
+  // 8. MODAL DE ACCESO Y ANIMACIÓN SLIDER
+  // ==========================================
+  const authModalOverlay = document.getElementById('authModalOverlay');
+  const openAuthModalBtn = document.getElementById('openAuthModal');
+  const closeAuthModalBtn = document.getElementById('closeAuthModal');
+
+  const authContainer = document.getElementById('authContainer');
+  const registerBtn = document.getElementById('registerBtn');
+  const loginBtn = document.getElementById('loginBtn');
+
+  // Abrir Modal
+  if (openAuthModalBtn && authModalOverlay) {
+    openAuthModalBtn.addEventListener('click', () => {
+      authModalOverlay.classList.add('active');
+    });
+  }
+
+  // Cerrar Modal con la "X"
+  if (closeAuthModalBtn && authModalOverlay) {
+    closeAuthModalBtn.addEventListener('click', () => {
+      authModalOverlay.classList.remove('active');
+    });
+  }
+
+  // Cerrar haciendo clic fuera del modal
+  if (authModalOverlay) {
+    authModalOverlay.addEventListener('click', (e) => {
+      if (e.target === authModalOverlay) {
+        authModalOverlay.classList.remove('active');
+      }
+    });
+  }
+
+  // Alternar animación entre Registro y Login
+  if (registerBtn && authContainer) {
+    registerBtn.addEventListener('click', () => {
+      authContainer.classList.add('active');
+    });
+  }
+
+  if (loginBtn && authContainer) {
+    loginBtn.addEventListener('click', () => {
+      authContainer.classList.remove('active');
     });
   }
 
