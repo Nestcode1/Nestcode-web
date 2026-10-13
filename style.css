@@ -75,7 +75,6 @@ main {
   padding: 0 20px;
 }
 
-/* Barra de Progreso de Scroll */
 .scroll-progress-bar {
   position: fixed;
   top: 0;
@@ -191,7 +190,7 @@ header nav a:hover {
 }
 
 /* =========================================================
-   4. SECCIÓN HERO Y LOGO NEÓN (AMPLIADO)
+   4. SECCIÓN HERO Y LOGO NEÓN (AMPLIADO Y ANIMADO)
    ========================================================= */
 .hero-section {
   min-height: 85vh;
@@ -211,7 +210,6 @@ header nav a:hover {
   margin: 0 auto;
 }
 
-/* Contenedor circular del logo (Ampliado a 105px) */
 .hero-logo-wrapper {
   position: relative;
   width: 105px;
@@ -226,7 +224,6 @@ header nav a:hover {
   box-shadow: 0 12px 25px var(--shadow-color);
 }
 
-/* Fondo luminoso interno (Ampliado a 85px) */
 .glow-bg {
   position: absolute;
   width: 85px;
@@ -237,7 +234,6 @@ header nav a:hover {
   pointer-events: none;
 }
 
-/* Gráfico vectorial SVG del logo (Ampliado a 75px) */
 .animated-logo-svg {
   width: 75px;
   height: 75px;
@@ -245,22 +241,22 @@ header nav a:hover {
   overflow: visible;
 }
 
-/* Animaciones del Logo Vectorial */
-.hexagon {
+/* Animaciones controladas por clase .animate en JS */
+.animated-logo-svg.animate .hexagon {
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
   animation: drawHexagon 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   filter: drop-shadow(0px 0px 5px var(--accent-blue));
 }
 
-.code-bracket {
+.animated-logo-svg.animate .code-bracket {
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
   animation: drawBracket 1.8s ease-out 0.8s forwards;
   filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.8));
 }
 
-.code-slash {
+.animated-logo-svg.animate .code-slash {
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
   animation: drawBracket 1.5s ease-out 1s forwards;
@@ -332,7 +328,7 @@ header nav a:hover {
 }
 
 /* =========================================================
-   5. SECCIONES GENERALES Y GRIDS
+   5. SECCIONES Y DISTRIBUCIÓN DE IMÁGENES
    ========================================================= */
 .content-section {
   background: var(--bg-card);
@@ -383,9 +379,6 @@ header nav a:hover {
   transform: translateY(-3px);
 }
 
-/* =========================================================
-   6. ESTILOS REORGANIZADOS PARA LAS IMÁGENES
-   ========================================================= */
 .grid-two-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -441,7 +434,6 @@ header nav a:hover {
   letter-spacing: 0.5px;
 }
 
-/* Mini tarjetas de proceso en columna */
 .process-steps-list {
   display: flex;
   flex-direction: column;
@@ -488,7 +480,7 @@ header nav a:hover {
 }
 
 /* =========================================================
-   7. FORMULARIO Y CANALES DE CONTACTO DIRECTO
+   6. CONTACTO Y FORMULARIO
    ========================================================= */
 .contacto-wrapper {
   display: grid;
@@ -611,7 +603,7 @@ header nav a:hover {
 }
 
 /* =========================================================
-   8. PIE DE PÁGINA Y ANIMACIONES
+   7. PIE DE PÁGINA Y ANIMACIONES
    ========================================================= */
 footer {
   text-align: center;
